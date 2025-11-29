@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "name": "Lion",
+    "icon": "assets/icons/lion.svg"
+  },
+  {
+    "id": 2,
+    "name": "Elephant",
+    "icon": "assets/icons/elephant.svg"
+  },
+  {
+    "id": 3,
+    "name": "Monkey",
+    "icon": "assets/icons/monkey.svg"
+  },
+  {
+    "id": 4,
+    "name": "Panda",
+    "icon": "assets/icons/panda.svg"
+  },
+  {
+    "id": 5,
+    "name": "Tiger",
+    "icon": "assets/icons/tiger.svg"
+  },
+  {
+    "id": 6,
+    "name": "Rabbit",
+    "icon": "assets/icons/rabbit.svg"
+  },
+  {
+    "id": 7,
+    "name": "Owl",
+    "icon": "assets/icons/owl.svg"
+  },
+  {
+    "id": 8,
+    "name": "Frog",
+    "icon": "assets/icons/frog.svg"
+  },
+  {
+    "id": 9,
+    "name": "Cat",
+    "icon": "assets/icons/cat.svg"
+  }
+]
