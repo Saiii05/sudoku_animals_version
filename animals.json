@@ -3,45 +3,54 @@
     "id": 1,
     "name": "Lion",
     "emoji": "🦁"
+    "icon": "assets/icons/lion.svg"
   },
   {
     "id": 2,
     "name": "Elephant",
     "emoji": "🐘"
+    "icon": "assets/icons/elephant.svg"
   },
   {
     "id": 3,
     "name": "Monkey",
     "emoji": "🐒"
+    "icon": "assets/icons/monkey.svg"
   },
   {
     "id": 4,
     "name": "Panda",
     "emoji": "🐼"
+    "icon": "assets/icons/panda.svg"
   },
   {
     "id": 5,
     "name": "Tiger",
     "emoji": "🐯"
+    "icon": "assets/icons/tiger.svg"
   },
   {
     "id": 6,
     "name": "Rabbit",
     "emoji": "🐰"
+    "icon": "assets/icons/rabbit.svg"
   },
   {
     "id": 7,
     "name": "Owl",
     "emoji": "🦉"
+    "icon": "assets/icons/owl.svg"
   },
   {
     "id": 8,
     "name": "Frog",
     "emoji": "🐸"
+    "icon": "assets/icons/frog.svg"
   },
   {
     "id": 9,
     "name": "Cat",
     "emoji": "🐱"
+    "icon": "assets/icons/cat.svg"
   }
 ]

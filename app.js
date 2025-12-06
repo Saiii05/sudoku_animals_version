@@ -2,6 +2,7 @@ import { puzzleGrid, solvedGrid } from './puzzles.js';
 
 window.puzzleGrid = puzzleGrid;
 window.solvedGrid = solvedGrid;
+import { puzzleGrid } from './puzzles.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     const gridElement = document.getElementById('sudoku-grid');
@@ -49,6 +50,16 @@ document.addEventListener('DOMContentLoaded', () => {
         disableGrid();
         alert('Congratulations! You solved the puzzle!');
     }
+    let animals = [];
+
+    // Fetch animal data
+    fetch('animals.json')
+        .then(response => response.json())
+        .then(data => {
+            animals = data;
+            createGrid();
+            createPalette();
+        });
 
     function createGrid() {
         for (let i = 0; i < 9; i++) {
@@ -68,6 +79,15 @@ document.addEventListener('DOMContentLoaded', () => {
                         if (puzzleGrid[i][j] !== 0) {
                             cell.classList.add('pre-filled');
                         }
+                const cellValue = puzzleGrid[i][j];
+                if (cellValue !== 0) {
+                    const animal = animals.find(a => a.id === cellValue);
+                    if (animal) {
+                        const img = document.createElement('img');
+                        img.src = animal.icon;
+                        img.alt = animal.name;
+                        cell.appendChild(img);
+                        cell.classList.add('pre-filled');
                     }
                 }
                 row.appendChild(cell);
@@ -94,6 +114,11 @@ document.addEventListener('DOMContentLoaded', () => {
             iconContainer.classList.add('animal-icon');
             iconContainer.textContent = animal.emoji;
             iconContainer.dataset.animalId = animal.id;
+            const img = document.createElement('img');
+            img.src = animal.icon;
+            img.alt = animal.name;
+            img.dataset.animalId = animal.id;
+            iconContainer.appendChild(img);
             paletteElement.appendChild(iconContainer);
         });
     }
@@ -177,6 +202,11 @@ document.addEventListener('DOMContentLoaded', () => {
             selectedAnimalId = event.target.dataset.animalId;
             document.querySelectorAll('.animal-icon').forEach(icon => icon.classList.remove('selected'));
             event.target.classList.add('selected');
+        if (event.target.tagName === 'IMG') {
+            selectedAnimalId = event.target.dataset.animalId;
+            // Optional: Add a class to the selected animal for visual feedback
+            document.querySelectorAll('.animal-icon').forEach(icon => icon.classList.remove('selected'));
+            event.target.parentElement.classList.add('selected');
         }
     });
 
@@ -210,6 +240,23 @@ document.addEventListener('DOMContentLoaded', () => {
                     }, 500);
                 }
             }
+        const cell = event.target.closest('.sudoku-cell');
+        if (cell && !cell.classList.contains('pre-filled')) {
+            if (selectedAnimalId) {
+                // Remove existing animal if any
+                cell.innerHTML = '';
+
+                const animal = animals.find(a => a.id === parseInt(selectedAnimalId, 10));
+                if (animal) {
+                    const img = document.createElement('img');
+                    img.src = animal.icon;
+                    img.alt = animal.name;
+                    cell.appendChild(img);
+                    selectedAnimalId = null; // Deselect animal after placing
+                    document.querySelectorAll('.animal-icon.selected').forEach(icon => icon.classList.remove('selected'));
+                }
+            }
+            // Optional: Add a class to the selected cell for visual feedback
             if (selectedCell) {
                 selectedCell.classList.remove('selected');
             }
