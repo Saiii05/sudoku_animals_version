@@ -1,0 +1,19 @@
+{
+  "title": "Animal Sudoku",
+  "welcome": "Welcome to Animal Sudoku!",
+  "tutorial.goal": "The goal is to fill the 9x9 grid so that each column, each row, and each of the nine 3x3 subgrids contain all of the nine selected animals.",
+  "tutorial.instructions": "Select an animal from the palette and click on a cell to place it. Use the toolbar for hints, undos, and more!",
+  "tutorial.gotIt": "Got It!",
+  "toolbar.newGame": "New Game",
+  "toolbar.difficulty": "Difficulty",
+  "toolbar.easy": "Easy",
+  "toolbar.medium": "Medium",
+  "toolbar.hard": "Hard",
+  "toolbar.expert": "Expert",
+  "toolbar.undo": "Undo",
+  "toolbar.redo": "Redo",
+  "toolbar.reset": "Reset",
+  "toolbar.hint": "Hint",
+  "toolbar.check": "Check",
+  "toolbar.solve": "Solve"
+}
