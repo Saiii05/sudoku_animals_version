@@ -15,26 +15,24 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
     function createGrid() {
-        for (let i = 0; i < 9; i++) {
-            const row = document.createElement('div');
-            row.classList.add('sudoku-row');
-            for (let j = 0; j < 9; j++) {
-                const cell = document.createElement('div');
-                cell.classList.add('sudoku-cell');
-                cell.dataset.row = i;
-                cell.dataset.col = j;
+        gridElement.innerHTML = ''; // Clear previous grid
+        for (let i = 0; i < 81; i++) {
+            const cell = document.createElement('div');
+            cell.classList.add('sudoku-cell');
+            const row = Math.floor(i / 9);
+            const col = i % 9;
+            cell.dataset.row = row;
+            cell.dataset.col = col;
 
-                const cellValue = puzzleGrid[i][j];
-                if (cellValue !== 0) {
-                    const animal = animals.find(a => a.id === cellValue);
-                    if (animal) {
-                        cell.textContent = animal.emoji;
-                        cell.classList.add('pre-filled');
-                    }
+            const cellValue = puzzleGrid[row][col];
+            if (cellValue !== 0) {
+                const animal = animals.find(a => a.id === cellValue);
+                if (animal) {
+                    cell.textContent = animal.emoji;
+                    cell.classList.add('pre-filled');
                 }
-                row.appendChild(cell);
             }
-            gridElement.appendChild(row);
+            gridElement.appendChild(cell);
         }
     }
 
@@ -77,4 +75,8 @@ document.addEventListener('DOMContentLoaded', () => {
             selectedCell.classList.add('selected');
         }
     });
+
+    // Reset button functionality
+    const resetButton = document.querySelector('.reset-button');
+    resetButton.addEventListener('click', createGrid);
 });
